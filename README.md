@@ -12,15 +12,11 @@ fastlane add_plugin teams
 
 ## About teams
 
-Send a success/error message to your Microsoft Teams channel
-
-**Note to author:** Add a more detailed description about this plugin here. If your plugin contains multiple actions, make sure to mention them here.
+Send a message to your Microsoft Teams channel
 
 ## Example
 
 Check out the [example `Fastfile`](fastlane/Fastfile) to see how to use this plugin. Try it by cloning the repo, running `fastlane install_plugins` and `bundle exec fastlane test`.
-
-**Note to author:** Please set up a sample project to make it easy for users to explore what your plugin does. Provide everything that is necessary to try out the plugin in this project (including a sample Xcode/Android project if necessary)
 
 ## Run tests for this plugin
 
