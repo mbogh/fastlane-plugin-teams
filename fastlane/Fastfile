@@ -1,0 +1,8 @@
+lane :test do
+  teams_url = "https://outlook.office.com/webhook/..."
+  teams(
+    title: "Fastlane says hello",
+    message: "App successfully released!",
+    teams_url: teams_url
+  )
+end
