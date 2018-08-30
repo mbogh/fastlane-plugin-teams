@@ -3,6 +3,16 @@ lane :test do
   teams(
     title: "Fastlane says hello",
     message: "App successfully released!",
+     facts:[
+      {
+        "name"=>"Platform",
+        "value"=>"Android
+      },
+      {
+        "name"=>"Lane",
+        "value"=>"android internal"
+      }
+    ],
     teams_url: teams_url
   )
 end
