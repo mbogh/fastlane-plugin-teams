@@ -11,7 +11,7 @@ module Fastlane
           "themeColor" => params[:theme_color],
           "title" => params[:title],
           "summary" => params[:title],
-          "sections" => [ { "text" => params[:message] } ]
+          "sections" => [ { "text" => params[:message], "facts" => params[:facts] } ]
         }
 
         json_headers = { 'Content-Type' => 'application/json' }
@@ -51,6 +51,10 @@ module Fastlane
           FastlaneCore::ConfigItem.new(key: :message,
                                        env_name: "FL_TEAMS_MESSAGE",
                                        description: "The message that should be displayed on Teams. This supports the standard Teams markup language"),
+          FastlaneCore::ConfigItem.new(key: :facts,
+                                       type: Array,
+                                       env_name: "FL_TEAMS_FACTS",
+                                       description: "Optional facts"),
           FastlaneCore::ConfigItem.new(key: :teams_url,
                                        env_name: "FL_TEAMS_URL",
                                        sensitive: true,
@@ -70,6 +74,16 @@ module Fastlane
           'teams(
             title: "Fastlane says hello",
             message: "App successfully released!",
+            facts:[
+              {
+                "name"=>"Platform",
+                "value"=>"Android
+              },
+              {
+                "name"=>"Lane",
+                "value"=>"android internal"
+              }
+            ],
             teams_url: "https://outlook.office.com/webhook/..."
           )'
         ]
