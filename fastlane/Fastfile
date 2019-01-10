@@ -6,7 +6,7 @@ lane :test do
      facts:[
       {
         "name"=>"Platform",
-        "value"=>"Android
+        "value"=>"Android"
       },
       {
         "name"=>"Lane",
