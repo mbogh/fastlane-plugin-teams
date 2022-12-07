@@ -11,7 +11,7 @@ module Fastlane
           "themeColor" => params[:theme_color],
           "title" => params[:title],
           "summary" => params[:title],
-          "sections" => [ { "text" => params[:message], "facts" => params[:facts] } ]
+          "sections" => params[:sections]
         }
 
         json_headers = { 'Content-Type' => 'application/json' }
@@ -48,13 +48,10 @@ module Fastlane
           FastlaneCore::ConfigItem.new(key: :title,
                                        env_name: "FL_TEAMS_TITLE",
                                        description: "The title that should be displayed on Teams"),
-          FastlaneCore::ConfigItem.new(key: :message,
-                                       env_name: "FL_TEAMS_MESSAGE",
-                                       description: "The message that should be displayed on Teams. This supports the standard Teams markup language"),
-          FastlaneCore::ConfigItem.new(key: :facts,
+          FastlaneCore::ConfigItem.new(key: :sections,
                                        type: Array,
-                                       env_name: "FL_TEAMS_FACTS",
-                                       description: "Optional facts"),
+                                       env_name: "FL_TEAMS_SECTIONS",
+                                       description: "Optional sections"),
           FastlaneCore::ConfigItem.new(key: :teams_url,
                                        env_name: "FL_TEAMS_URL",
                                        sensitive: true,
