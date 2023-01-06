@@ -24,11 +24,14 @@ module Fastlane
       end
 
       def self.check_response_code(response)
-        if response.code.to_i == 200 && response.body.to_i == 1
+        if (response.code.to_i == 200 && response.body.to_i == 1) || JSON.parse(response.body)['isSuccessStatusCode']
           true
         else
-          UI.user_error!("An error occurred: #{response.body}")
+          raise 'Invalid response'
         end
+
+      rescue
+        UI.user_error!("An error occurred: #{response.body}")
       end
 
       def self.description
